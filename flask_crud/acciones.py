@@ -1,7 +1,9 @@
 from conexion import collection
 from flask import request, render_template, Flask, url_for, redirect
 from bson.objectid import ObjectId
+import insersion
 
+insersion.new_slangs
 app = Flask(__name__)
 
 
