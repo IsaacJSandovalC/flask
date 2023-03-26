@@ -1,4 +1,4 @@
-## Taller #3 Flask y MongDB(pymongo)<a name="id3"></a>
+## Taller #3 Flask y MongDB<a name="id3"></a>
 Este trabajo se emplea utilizando Python, pymongo y flask se crea una colecion llamada "flask" y un documento llamado "flask_mongo". 
 
 Se le agregan las funciones de:
