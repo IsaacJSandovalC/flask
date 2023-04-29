@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE HTML>
 <html>
 
@@ -199,4 +200,207 @@
 
 </body>
 
+=======
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>MongoDB || Flask</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+	<link rel="icon" href="{{ url_for('static', filename='flask.ico') }}" />
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="logo">
+				<img src="https://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/128/dev-icon.png"
+					width="100%" height="100%">
+			</div>
+			<div class="content">
+				<div class="inner">
+					<h1>Menu de acciones</h1>
+					<p>Menu de acciones para el taller de programacion 4 utilizando MongoDB. <br> Reemplazar las
+						creedenciales del docuimento <a href="../conexion.py">conexion.py</a> por sus credenciales
+						personalizadas, por ejemplo: </p>
+
+					<code>
+						MONGODB_HOST = <b>'YOUR_HOST'</b><br>
+						MONGODB_PORT = <b>'YOUR_PORT'</b><br>
+						MONGODB_TIMEOUT = <b>'YOUR_TIMEOUT' (En eneteros)</b>
+					</code>
+				</div>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="#insertar">Insertar</a></li>
+					<li><a href="#editar">Editar</a></li>
+					<li><a href="#eliminar">Eliminar</a></li>
+					<li><a href="#mostrar">Mostrar</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- Insertar -->
+			<article id="insertar">
+				<h2 class="major">Insertar un valor</h2>
+				<form method="POST" action="/insertar">
+					<div class="fields">
+						<div class="field half">
+							<label for="palabra">Palabra</label>
+							<input type="text" name="palabra" id="palabra" required>
+						</div>
+						<div class="field">
+							<label for="descripcion">Descripción</label>
+							<textarea name="descripcion" id="descripcion" rows="4" required></textarea>
+						</div>
+					</div>
+					<ul class="actions">
+						<li><button type="submit" class="button primary">Insertar</button></li>
+					</ul>
+				</form>
+			</article>
+
+
+			<!-- Editar -->
+			<article id="editar">
+				<h2 class="major">Editar un valor</h2>
+				<form method="POST" action="/editar">
+					<table class="alt">
+						<thead>
+							<h3>Valores a editar</h3>
+							<tr>
+								<th>Id</th>
+								<th>Palabra</th>
+								<th>Descripcion</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for slang in items %}
+							<tr>
+								<td>{{ slang._id }}</td>
+								<td>{{ slang.palabra }}</td>
+								<td>{{ slang.significado }}</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					<div class="fields">
+						<div class="field half">
+							<label for="id">ID</label>
+							<input type="text" name="id" id="id" required />
+						</div>
+						<div class="field half">
+							<label for="palabra">Nueva palabra</label>
+							<input type="text" name="palabra" id="palabra" required />
+						</div>
+						<div class="field">
+							<label for="descripcion">Nueva Descripcion</label>
+							<textarea name="descripcion" id="descripcion" rows="4" required></textarea>
+						</div>
+					</div>
+					<ul class="actions">
+						<li><button type="submit" class="button primary">Guardar cambios</button></li>
+					</ul>
+				</form>
+			</article>
+
+			<!-- Confirmación de eliminación -->
+			<article id="eliminar">
+				<h2 class="major">Eliminar valor</h2>
+				<form method="POST" action="/eliminar">
+					<table class="alt">
+						<thead>
+							<h3>Valores a eliminar</h3>
+							<tr>
+								<th>Palabra</th>
+								<th>Descripcion</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for slang in items %}
+							<tr>
+								<td>{{ slang._id }}</td>
+								<td>{{ slang.palabra }}</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					<div class="fields">
+						<div class="field">
+							<label for="palabra">Ingresa el ID a eliminar:</label>
+							<input type="text" name="id" id="id" required />
+						</div>
+					</div>
+					<ul class="actions">
+						<li><button type="submit" class="button primary">Sí, eliminar</button></li>
+						<li><a href="#" class="button">Cancelar</a></li>
+					</ul>
+				</form>
+			</article>
+
+
+			<!-- Momstrar todo -->
+			<article id="mostrar">
+				<h2 class="major">Mostrar todos los valores</h2>
+				<div class="table-wrapper">
+					<table class="alt">
+						<thead>
+							<tr>
+								<th>Palabra</th>
+								<th>Descripcion</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for slang in items %}
+							<tr>
+								<td>{{ slang.palabra }}</td>
+								<td>{{ slang.significado }}</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</article>
+
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<article>
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/isaac-sandoval-993243255/"
+							class="icon brands fa-linkedin"><span class="label">Twitter</span></a></li>
+					<li><a href="https://github.com/IsaacJSandovalC" class="icon brands fa-github"><span
+								class="label">GitHub</span></a></li>
+				</ul>
+			</article>
+		</footer>
+	</div>
+
+	<!-- BG -->
+	<div id="bg"></div>
+
+	<!-- Scripts -->
+
+	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/util.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+</body>
+
+>>>>>>> main
 </html>
