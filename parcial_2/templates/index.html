@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Immunization Data for Panama</title>
+</head>
+<body>
+    <h1>Immunization Data for Panama</h1>
+    <table>
+        <thead>
+            <tr>
+                {% for key, value in data[0].items()  %}
+                    <th>{{ key|default(0)|int }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {% for key, value in data[0].items()  %}
+                    <td>{{ value|default(0)|int }}</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
