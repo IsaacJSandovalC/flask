@@ -16,7 +16,7 @@ def inicio():
 @app.route('/insertar', methods=['POST'])
 def insertar():
     collection.insert_one({'palabra': request.form['palabra'], 
-                           'descripcion': request.form['descripcion']})
+                           'significado': request.form['descripcion']})
     
     return redirect(url_for('inicio'))
 
